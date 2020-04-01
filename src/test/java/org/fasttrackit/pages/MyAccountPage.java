@@ -15,6 +15,16 @@ public class MyAccountPage extends PageObject {
     private WebElementFacade registerButton;
     @FindBy(css = "p a[href*=\"logout\"]")
     private WebElementFacade succesfullRegistration;
+    @FindBy(id = "username")
+    private WebElementFacade loginEmailField;
+    @FindBy(id = "password")
+    private WebElementFacade loginPasswordField;
+    @FindBy(id = "rememberme")
+    private WebElementFacade remamberMeCheckBox;
+    @FindBy(css ="button[value*=\"Login\"]")
+    private WebElementFacade loginButton;
+    @FindBy(css = "div > div > ul > li")
+    private WebElementFacade wrongEmailOrPasswordMessage;
 
     public void setRegisterEmailAdressField (String Email){
         registerEmailAdressField.type(Email);
@@ -26,7 +36,23 @@ public class MyAccountPage extends PageObject {
     public void clickRegisterButton(){
         registerButton.click();
     }
-    public String chechSuccesfullRegistration(){
+    public String chechSuccesfullRegistrationOrLogin(){
         return succesfullRegistration.getText();
+    }
+
+    public void setLoginEmailField(String email){
+        loginEmailField.type(email);
+    }
+    public void setLoginPasswordField(String password){
+        loginPasswordField.type(password);
+    }
+    public void clickRememberMeCheckBox(){
+        remamberMeCheckBox.click();
+    }
+    public void clickLoginButton(){
+        loginButton.click();
+    }
+    public String getWrongEmailOrPasswordMessage(){
+       return wrongEmailOrPasswordMessage.getText();
     }
 }

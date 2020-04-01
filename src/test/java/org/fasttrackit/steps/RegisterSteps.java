@@ -19,7 +19,7 @@ public class RegisterSteps {
     }
     @Step
     public void checkRegistration(String expected){
-        String message =myAccountPage.chechSuccesfullRegistration();
+        String message =myAccountPage.chechSuccesfullRegistrationOrLogin();
         Assert.assertEquals(expected,message);
     }
 
