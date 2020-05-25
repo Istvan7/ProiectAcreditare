@@ -21,7 +21,7 @@ public class LoginSteps {
     public void setcredentials(String email,String password){
         myAccountPage.setLoginEmailField(email);
         myAccountPage.setLoginPasswordField(password);
-        myAccountPage.clickRememberMeCheckBox();
+
 
     }
     public void login(){

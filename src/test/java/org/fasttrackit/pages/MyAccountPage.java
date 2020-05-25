@@ -25,6 +25,8 @@ public class MyAccountPage extends PageObject {
     private WebElementFacade loginButton;
     @FindBy(css = "div > div > ul > li")
     private WebElementFacade wrongEmailOrPasswordMessage;
+    @FindBy(css = "p a[href*=\"id=120&customer-logout&\"]")
+    private WebElementFacade logOut;
 
     public void setRegisterEmailAdressField (String Email){
         registerEmailAdressField.type(Email);
@@ -54,5 +56,8 @@ public class MyAccountPage extends PageObject {
     }
     public String getWrongEmailOrPasswordMessage(){
        return wrongEmailOrPasswordMessage.getText();
+    }
+    public void LogOut(){
+        logOut.click();
     }
 }

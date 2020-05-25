@@ -11,7 +11,7 @@ public class RegisterTest extends BaseTest {
     RegisterSteps registerSteps;
     @Test
     public void Register(){
-        registerSteps.register("qweeerzcwq@mailinator.com","asdfghjklbhdfh5849498498498498498498498498vsdbvksbvjkadfvjh+6+65+6256+$%^&");
+        registerSteps.register("qweeerzcwq@mailinator.com","asdf652652652568498498498498498498498vsdbvksbvjkadfvjh+6+65+6256+$%^&");
         registerSteps.checkRegistration("Log out");
 
     }

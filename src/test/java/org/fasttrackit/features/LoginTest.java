@@ -8,10 +8,11 @@ import org.fasttrackit.utils.Constants;
 import org.junit.Test;
 
 public class LoginTest extends BaseTest {
+    private   Constants constants;
     @Steps
     LoginSteps loginSteps;
-    @Steps
-    Constants constants;
+
+
 
     @Test
     public void login() {

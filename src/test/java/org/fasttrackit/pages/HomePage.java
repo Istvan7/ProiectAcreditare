@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.junit.Assert;
 
 @DefaultUrl("http://qa4.fasttrackit.org:8008")
 public class HomePage extends PageObject {
@@ -21,6 +22,10 @@ private WebElementFacade searchField;
 private WebElementFacade searchIcon;
 @FindBy(css = "input[title*=\"Search \"]")
 private WebElementFacade searchIconField;
+@FindBy(css = "span[class*=\"fa\"]")
+private WebElementFacade cartIcon;
+@FindBy(css = "span[class*=\"number\"]")
+private WebElementFacade cartIconNumber;
 
 
 
@@ -39,6 +44,18 @@ public void clickSearchIcon(){
 }
 public void typeSearchIcon(String text){
     searchIconField.typeAndEnter(text);
+}
+public void clickCartIcon(){
+    cartIcon.click();
+}
+public String getCartIconNumber(){
+    return cartIconNumber.getText();
+}
+public void verify (){
+    Assert.assertEquals("1",getCartIconNumber());
+}
+
+
 
 }
-}
+
