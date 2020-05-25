@@ -2,17 +2,20 @@ package org.fasttrackit.steps;
 
 import net.thucydides.core.annotations.Step;
 import org.fasttrackit.pages.HomePage;
+import org.fasttrackit.pages.SearchPage;
 import org.fasttrackit.pages.ShopPage;
+import org.junit.Assert;
 import org.yecht.Data;
 
 public class SearchSteps {
     private HomePage homePage;
     private ShopPage shopPage;
+    private SearchPage searchPage;
 
 
 
     @Step
-    public void search(){
+    public void homepage(){
         homePage.open();
 
     }
@@ -30,4 +33,22 @@ public class SearchSteps {
         homePage.getCartIconNumber();
         homePage.verify();
     }
+
+   @Step
+    public void verifyAsscendingPrices(){
+        Assert.assertTrue(searchPage.checkAsccendinPrice());
+
+    }
+    @Step
+    public void sortBy(String SortBY){
+        searchPage.setSortBySelect(SortBY);
+    }
+   //public void comparenumbers(){
+     //   searchPage.checkNumbers();
+    //}
+
+ /*   public void compareNumbers(){
+        Assert.assertTrue(searchPage.highestPriceInt()> searchPage.lowestPriceIt());
+    }*/
+
 }

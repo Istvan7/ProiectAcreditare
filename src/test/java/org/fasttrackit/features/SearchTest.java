@@ -14,18 +14,35 @@ public class SearchTest extends BaseTest {
 
     @Test
     public void search() {
-        searchSteps.search();
+        searchSteps.homepage();
         searchSteps.searchIcon("beanie");
 
     }
 
     @Test
-    public void cartIcon(){
+    public void cartIcon() {
         searchSteps.cart();
     }
 
     @Test
-    public void SortBY(){
+    public void SortBY() {
         shopSteps.sortBY("Sort by newness");
     }
+
+
+    @Test
+    public void sortByPrice() {
+        searchSteps.homepage();
+        searchSteps.searchIcon("logo");
+        //shopSteps.sortBY("Sort by price: low to high");
+        searchSteps.sortBy("Sort by price: low to high");
+       // searchSteps.verifyAsscendingPrices();
+       // searchSteps.comparenumbers();
+       // searchSteps.compareNumbers();
+        searchSteps.verifyAsscendingPrices();
+    }
 }
+
+
+
+
