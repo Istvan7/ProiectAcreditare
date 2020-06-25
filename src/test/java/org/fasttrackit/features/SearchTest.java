@@ -30,7 +30,7 @@ public class SearchTest extends BaseTest {
     }
 
 
-    @Test
+   /* @Test
     public void sortByPrice() {
         searchSteps.homepage();
         searchSteps.searchIcon("logo");
@@ -40,7 +40,15 @@ public class SearchTest extends BaseTest {
        // searchSteps.comparenumbers();
        // searchSteps.compareNumbers();
         searchSteps.verifyAsscendingPrices();
-    }
+    }*/
+
+   @Test
+    public void searchByText(){
+       String text ="90";
+       searchSteps.searchIcon(text);
+       searchSteps.veryfysearchbytext(text);
+
+   }
 }
 
 

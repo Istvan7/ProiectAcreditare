@@ -34,10 +34,13 @@ public class LoginSteps {
         Assert.assertEquals("Log out",myAccountPage.chechSuccesfullRegistrationOrLogin());
     }
 
-    public void loginErrorMessage(){
-        Assert.assertEquals("ERROR: The password you entered for the email address IstiF@malinator.com is incorrect. Lost your password?",myAccountPage.getWrongEmailOrPasswordMessage());
+    public void checkloginPasswordErrorMessage(){
+        Assert.assertEquals("ERROR: The password you entered for the email address IstiF@malinator.com is incorrect. Lost your password?",myAccountPage.getWrongPasswordError());
     }
 
+    public void checkloginEmailErrorMassage(){
+        Assert.assertEquals("ERROR: Invalid email address. Lost your password?",myAccountPage.getWrongEamilError());
+    }
 
 
 

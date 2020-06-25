@@ -32,4 +32,42 @@ public class CheckoutPage extends PageObject {
 @FindBy(id = "order_comments")
     private WebElementFacade orderNotes;
 
+
+
+public void setFirstNamefield(String FirstName) {
+    firstNamefield.type(FirstName);
+}
+public void setLastNamefield(String LastName){
+    lastNamefield.type(LastName);
+}
+public void setCompaniNamefield(String CompaniName){
+    companiNamefield.type(CompaniName);
+}
+public void setSelectCountryfield(){
+    selectCountryfield.selectByVisibleText("Romania");
+}
+public void setStreetAddresField(String StreetAdress){
+    streetAddresField.type(StreetAdress);
+}
+public void setTownAndCityfield(String Town){
+    townAndCityfield.type(Town);
+
+}
+public void setCountyField(String County){
+    countyField.selectByVisibleText("Cluj");
+}
+public void  setPostCodeOrZip (String zip){
+    postcodeOrZip.type(zip);
+}
+public void setPhoneNrField(String PhoneNumber){
+    phoneNrField.type(PhoneNumber);
+}
+public void setEmailAdressField(String Email){
+    emailAdressField.type(Email);
+}
+
+
+
+
+
 }

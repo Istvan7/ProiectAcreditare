@@ -4,6 +4,10 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 @DefaultUrl("http://qa4.fasttrackit.org:8008/?page_id=120")
 public class MyAccountPage extends PageObject {
@@ -27,6 +31,13 @@ public class MyAccountPage extends PageObject {
     private WebElementFacade wrongEmailOrPasswordMessage;
     @FindBy(css = "p a[href*=\"id=120&customer-logout&\"]")
     private WebElementFacade logOut;
+    @FindBy(css ="[aria-label*=\"to your cart\"]")
+    private List<WebElementFacade> addTOcart;
+
+    @FindBy(css = " div > div > ul > li")
+    private WebElementFacade wrongEmailError;
+
+
 
     public void setRegisterEmailAdressField (String Email){
         registerEmailAdressField.type(Email);
@@ -54,10 +65,13 @@ public class MyAccountPage extends PageObject {
     public void clickLoginButton(){
         loginButton.click();
     }
-    public String getWrongEmailOrPasswordMessage(){
+    public String getWrongPasswordError(){
        return wrongEmailOrPasswordMessage.getText();
     }
     public void LogOut(){
         logOut.click();
     }
-}
+    public String getWrongEamilError(){return wrongEmailError.getText();}
+
+    }
+

@@ -1,9 +1,13 @@
 package org.fasttrackit.pages;
 
+import com.sun.xml.bind.v2.model.core.ID;
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
+
+import java.util.List;
 
 public class SearchPage extends PageObject {
 
@@ -13,6 +17,8 @@ public class SearchPage extends PageObject {
     private WebElementFacade highestPrice;
     @FindBy(css = "select[class*='orderby']")
     private WebElementFacade sortBySelect;
+    @FindBy(id = "[class*='grid_column']")
+    private List<WebElementFacade> listOfProducts;
 
     public void setSortBySelect(String SortBy) {
         sortBySelect.selectByVisibleText(SortBy);
@@ -27,6 +33,14 @@ public class SearchPage extends PageObject {
         if (lowestpriceInt < highestpriceInt)
             return false;
         else return true;
+    }
+
+    public boolean findProductInGrid(String name) {
+        for (WebElementFacade product : listOfProducts) {
+            if (product.findBy(By.cssSelector(".price")).getText().replace(",00 lei","").equals(name))
+            return true;
+        }
+        return false;
     }
 }
 

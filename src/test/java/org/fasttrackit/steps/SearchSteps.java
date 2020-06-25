@@ -21,8 +21,8 @@ public class SearchSteps {
     }
     @Step
     public void searchIcon(String text){
-        homePage.clickSearchIcon();
-        homePage.typeSearchIcon(text);
+        homePage.open();
+        homePage.clicShopButton();
     }
     @Step
     public void cart(){
@@ -50,5 +50,11 @@ public class SearchSteps {
  /*   public void compareNumbers(){
         Assert.assertTrue(searchPage.highestPriceInt()> searchPage.lowestPriceIt());
     }*/
+
+ @Step
+    public void veryfysearchbytext(String value){
+     Assert.assertTrue(searchPage.findProductInGrid(value));
+
+ }
 
 }

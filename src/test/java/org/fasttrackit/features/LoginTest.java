@@ -27,8 +27,16 @@ public class LoginTest extends BaseTest {
         loginSteps.navigateToMyAccount();
         loginSteps.setcredentials("IstiF@malinator.com","123456789!@#$%^&*()qwertyuiop22");
         loginSteps.login();
-        loginSteps.loginErrorMessage();
+        loginSteps.checkloginPasswordErrorMessage();
 
+
+    }
+    @Test
+    public void logInWithWrongEmail(){
+        loginSteps.navigateToMyAccount();
+        loginSteps.setcredentials("IstiF@malinator12345678.com","asdasdasdasdsad");
+        loginSteps.login();
+        loginSteps.checkloginEmailErrorMassage();
 
     }
 }
