@@ -17,7 +17,7 @@ public class SearchPage extends PageObject {
     private WebElementFacade highestPrice;
     @FindBy(css = "select[class*='orderby']")
     private WebElementFacade sortBySelect;
-    @FindBy(id = "[class*='grid_column']")
+    @FindBy(css = "li[class*='type-product']")
     private List<WebElementFacade> listOfProducts;
 
     public void setSortBySelect(String SortBy) {
@@ -35,9 +35,9 @@ public class SearchPage extends PageObject {
         else return true;
     }
 
-    public boolean findProductInGrid(String name) {
+    public boolean findProductInGrid(String text) {
         for (WebElementFacade product : listOfProducts) {
-            if (product.findBy(By.cssSelector(".price")).getText().replace(",00 lei","").equals(name))
+            if (product.findBy(By.cssSelector("[class*='product__title']")).getText().equals(text))
             return true;
         }
         return false;

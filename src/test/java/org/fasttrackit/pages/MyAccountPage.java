@@ -7,6 +7,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import javax.swing.text.html.CSS;
 import java.util.List;
 
 @DefaultUrl("http://qa4.fasttrackit.org:8008/?page_id=120")
@@ -33,9 +34,10 @@ public class MyAccountPage extends PageObject {
     private WebElementFacade logOut;
     @FindBy(css ="[aria-label*=\"to your cart\"]")
     private List<WebElementFacade> addTOcart;
-
     @FindBy(css = " div > div > ul > li")
     private WebElementFacade wrongEmailError;
+    @FindBy (css = "#post-120 > div > div > ul > li")
+    private WebElementFacade alreadyUsedEmailError;
 
 
 
@@ -72,6 +74,7 @@ public class MyAccountPage extends PageObject {
         logOut.click();
     }
     public String getWrongEamilError(){return wrongEmailError.getText();}
+    public String getalreadyUsedEmailError(){return alreadyUsedEmailError.getText();}
 
     }
 

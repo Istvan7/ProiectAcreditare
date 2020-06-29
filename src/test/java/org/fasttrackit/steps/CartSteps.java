@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Step;
 import org.fasttrackit.pages.CartPage;
 import org.fasttrackit.pages.MyAccountPage;
 import org.fasttrackit.pages.ShopPage;
+import org.junit.Assert;
 
 public class CartSteps  {
     private CartPage cartPage;
@@ -17,6 +18,12 @@ public class CartSteps  {
     }
     public void opencart (){
         cartPage.open();
+    }
+
+    @Step
+    public void chechIfPricesAreEqual(){
+        Assert.assertEquals(cartPage.sumOfPrices(),cartPage.total());
+
     }
 
 

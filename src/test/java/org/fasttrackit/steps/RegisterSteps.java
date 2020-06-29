@@ -23,4 +23,10 @@ public class RegisterSteps {
         Assert.assertEquals(expected,message);
     }
 
+    @Step
+    public void checkalreadyUsedEmailEror(String expected){
+        String errorMassage =myAccountPage.getalreadyUsedEmailError();
+        Assert.assertEquals(expected,errorMassage);
+    }
+
 }

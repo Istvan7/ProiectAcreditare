@@ -19,10 +19,7 @@ public class SearchTest extends BaseTest {
 
     }
 
-    @Test
-    public void cartIcon() {
-        searchSteps.cart();
-    }
+
 
     @Test
     public void SortBY() {
@@ -44,7 +41,7 @@ public class SearchTest extends BaseTest {
 
    @Test
     public void searchByText(){
-       String text ="90";
+       String text ="Hoodie";
        searchSteps.searchIcon(text);
        searchSteps.veryfysearchbytext(text);
 

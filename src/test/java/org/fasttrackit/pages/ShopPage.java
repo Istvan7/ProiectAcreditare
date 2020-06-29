@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -24,12 +25,22 @@ public class ShopPage extends PageObject {
     private WebElementFacade product4;
     @FindBy(css = "a[data-product_id*=\"62\"]")
     private WebElementFacade product5;
-    @FindBy(css = "#azera_shop_id_7CtYpxUlRU > div.azera_shop_grid_col_4.azera_shop_grid_column_1.azera_shop_grid_first")
+    @FindBy(css = ".type-product")
     private List<WebElementFacade> container;
     @FindBy(css = "[aria-label*='to your cart']")
     private WebElementFacade addToCartButton;
     @FindBy(id = "menu-item-124")
     private WebElementFacade cartButton;
+    @FindBy(css = ".cart-item-number")
+    private WebElementFacade cartItemNumber;
+    @FindBy(css = "p.return-to-shop")
+    private WebElementFacade returnToShoppButton;
+    @FindBy(css = ".checkout-button")
+    private WebElementFacade proccedToCheckout;
+    @FindBy(css = ".add_to_cart_button")
+    private WebElementFacade clickOnAddToCart;
+    @FindBy(css = "a[data-product_id*=\"58\"]")
+    private WebElementFacade beltProduct;
 
 
     public void addproduct1() {
@@ -56,25 +67,61 @@ public class ShopPage extends PageObject {
         product5.click();
     }
 
-   /* public boolean addMultipleItemsToCart() {
-        for (WebElementFacade item : container
-        ) {assert item.click();
-            /*{item.thenFindAll(By.cssSelector("[aria-label*='to your cart']"));{
-            clickOn(item);
-            clickOn(addToCartButton);
-        }clickOn(addToCartButton);*/
+    public boolean addMultipleItemsToCart() {
+        for (WebElementFacade item : container) {
+            if (item.findBy(By.cssSelector(".add_to_cart_button")).isClickable()) {
+                clickOn(item);
+            }
+            return true;
 
-
-
-
-
-
-
-    public void clickCart() {
-        cartButton.click();
+        }
+        return false;
     }
 
+    public boolean sortbyPrice() {
+        int highestPrice = getPriceFromElement(container.get(0));
+        int lowestPrice = getPriceFromElement(container.get(container.size() - 2));
+        if (highestPrice >= lowestPrice) {
+            return true;
+        }
+        return false;
+    }
+
+    private int getPriceFromElement(WebElementFacade element) {
+        String priceAsString = element
+                .findBy(By.cssSelector(".price")).getText()
+                .replace(",00 lei", "");
+        return Integer.parseInt(priceAsString);
+    }
+
+    public boolean cartIconNumberNot0() {
+        int inconValue = Integer.parseInt(cartItemNumber.getText());
+        if (inconValue != 0) ;
+        return true;
+
+    }
+
+    public boolean proccedToCheckoutIsDisplayed() {
+        if (proccedToCheckout.isDisabled()) ;
+        return true;
+    }
+    public void openBeltProduct(){
+        beltProduct.click();
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

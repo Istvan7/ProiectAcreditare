@@ -14,17 +14,35 @@ public class CartTest extends BaseTest {
 
 
 
-    /*@Test
-    public void add5Productstocart(){
-        shopSteps.openShop();
-        shopSteps.addProdactsToCart();
-        shopSteps.openCart();
-        cartSteps.getprices();*/
+
+
+    @Test
+    public void addmultiplePriductsToCart(){
+        shopSteps.addmultipleitemsToCart();
+    }
+
     @Test
     public void addToCart(){
-shopSteps.addmultipleitemsToCart();
+        shopSteps.openShop();
+    shopSteps.addProdactsToCart();
+    shopSteps.openCart();
+    shopSteps.proccedToCheckoutisDisplayed();
 
 
+
+
+    }
+@Test
+    public void chechpPices(){
+        cartSteps.openShop();
+        shopSteps.addProdactsToCart();
+        shopSteps.openCart();
+        cartSteps.chechIfPricesAreEqual();
+
+    }
+    @Test
+    public void cartIcon() {
+        shopSteps.checkCartIconNumer();
     }
 }
 

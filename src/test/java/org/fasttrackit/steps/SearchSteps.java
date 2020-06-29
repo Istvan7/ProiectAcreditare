@@ -22,17 +22,11 @@ public class SearchSteps {
     @Step
     public void searchIcon(String text){
         homePage.open();
-        homePage.clicShopButton();
+        homePage.clickSearchIcon();
+        homePage.typeSearchIcon(text);
+
     }
-    @Step
-    public void cart(){
-        homePage.open();
-        homePage.clicShopButton();
-        shopPage.addproduct1();
-        homePage.open();
-        homePage.getCartIconNumber();
-        homePage.verify();
-    }
+
 
    @Step
     public void verifyAsscendingPrices(){
@@ -43,13 +37,7 @@ public class SearchSteps {
     public void sortBy(String SortBY){
         searchPage.setSortBySelect(SortBY);
     }
-   //public void comparenumbers(){
-     //   searchPage.checkNumbers();
-    //}
 
- /*   public void compareNumbers(){
-        Assert.assertTrue(searchPage.highestPriceInt()> searchPage.lowestPriceIt());
-    }*/
 
  @Step
     public void veryfysearchbytext(String value){
